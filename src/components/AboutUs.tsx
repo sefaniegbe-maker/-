@@ -6,12 +6,12 @@ import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
 const markers = [
-  { name: "China", coordinates: [104.1954, 35.8617] },
-  { name: "USA", coordinates: [-95.7129, 37.0902] },
-  { name: "Germany", coordinates: [10.4515, 51.1657] },
-  { name: "Vietnam", coordinates: [108.2772, 14.0583] },
-  { name: "Thailand", coordinates: [100.9925, 15.8700] },
-  { name: "Australia", coordinates: [133.7751, -25.2744] }
+  { name: "China", label: "中国", coordinates: [104.1954, 35.8617], dx: 10, dy: 3, anchor: "start" },
+  { name: "USA", label: "美国", coordinates: [-95.7129, 37.0902], dx: 10, dy: 3, anchor: "start" },
+  { name: "Germany", label: "德国", coordinates: [10.4515, 51.1657], dx: -10, dy: 3, anchor: "end" },
+  { name: "Vietnam", label: "越南", coordinates: [108.2772, 14.0583], dx: 10, dy: 3, anchor: "start" },
+  { name: "Thailand", label: "泰国", coordinates: [100.9925, 15.8700], dx: -10, dy: 3, anchor: "end" },
+  { name: "Australia", label: "澳大利亚", coordinates: [133.7751, -25.2744], dx: 10, dy: 3, anchor: "start" }
 ];
 
 function AnimatedCounter({ from, to, duration = 2, suffix = '' }: { from: number, to: number, duration?: number, suffix?: string }) {
@@ -61,24 +61,39 @@ export default function AboutUs() {
 
         {/* Data Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-32 text-center">
-          <div className="group cursor-default">
-            <h3 className="text-6xl md:text-8xl font-thin text-white tracking-tighter mb-4">
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="group cursor-default relative"
+          >
+            <div className="absolute inset-0 bg-[#0066FF]/0 group-hover:bg-[#0066FF]/10 blur-3xl rounded-full transition-all duration-500" />
+            <h3 className="relative text-6xl md:text-8xl font-thin text-white tracking-tighter mb-4 group-hover:drop-shadow-[0_0_30px_rgba(0,102,255,0.6)] transition-all duration-500">
               <AnimatedCounter from={0} to={1} suffix="GW+" />
             </h3>
-            <p className="text-white/50 font-light tracking-widest text-sm uppercase">累计运营可再生能源资产</p>
-          </div>
-          <div className="group cursor-default">
-            <h3 className="text-6xl md:text-8xl font-thin text-white tracking-tighter mb-4">
+            <p className="relative text-white/50 font-light tracking-widest text-sm uppercase group-hover:text-white/80 transition-colors duration-500">累计运营可再生能源资产</p>
+          </motion.div>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="group cursor-default relative"
+          >
+            <div className="absolute inset-0 bg-[#0066FF]/0 group-hover:bg-[#0066FF]/10 blur-3xl rounded-full transition-all duration-500" />
+            <h3 className="relative text-6xl md:text-8xl font-thin text-white tracking-tighter mb-4 group-hover:drop-shadow-[0_0_30px_rgba(0,102,255,0.6)] transition-all duration-500">
               <AnimatedCounter from={0} to={5} suffix="亿度" />
             </h3>
-            <p className="text-white/50 font-light tracking-widest text-sm uppercase">累计节约电能</p>
-          </div>
-          <div className="group cursor-default">
-            <h3 className="text-6xl md:text-8xl font-thin text-white tracking-tighter mb-4">
+            <p className="relative text-white/50 font-light tracking-widest text-sm uppercase group-hover:text-white/80 transition-colors duration-500">累计节约电能</p>
+          </motion.div>
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="group cursor-default relative"
+          >
+            <div className="absolute inset-0 bg-[#0066FF]/0 group-hover:bg-[#0066FF]/10 blur-3xl rounded-full transition-all duration-500" />
+            <h3 className="relative text-6xl md:text-8xl font-thin text-white tracking-tighter mb-4 group-hover:drop-shadow-[0_0_30px_rgba(0,102,255,0.6)] transition-all duration-500">
               <AnimatedCounter from={0} to={30} suffix="万吨" />
             </h3>
-            <p className="text-white/50 font-light tracking-widest text-sm uppercase">累计减少碳排放</p>
-          </div>
+            <p className="relative text-white/50 font-light tracking-widest text-sm uppercase group-hover:text-white/80 transition-colors duration-500">累计减少碳排放</p>
+          </motion.div>
         </div>
 
         <motion.p
@@ -137,10 +152,43 @@ export default function AboutUs() {
                 ))
               }
             </Geographies>
-            {markers.map(({ name, coordinates }) => (
+            {markers.map(({ name, label, coordinates, dx, dy, anchor }) => (
               <Marker key={name} coordinates={coordinates as [number, number]}>
-                <circle r={4} fill="#00E5FF" className="animate-ping opacity-75" />
-                <circle r={2} fill="#00E5FF" />
+                <motion.g
+                  initial="rest"
+                  whileHover="hover"
+                  className="cursor-pointer"
+                >
+                  <motion.circle 
+                    r={4} 
+                    className="animate-ping opacity-75" 
+                    variants={{
+                      rest: { fill: "#00E5FF" },
+                      hover: { fill: "#0066FF" }
+                    }}
+                  />
+                  <motion.circle 
+                    r={2} 
+                    variants={{
+                      rest: { fill: "#00E5FF", scale: 1 },
+                      hover: { fill: "#0066FF", scale: 2 }
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <motion.text
+                    textAnchor={anchor as "start" | "middle" | "end"}
+                    x={dx}
+                    y={dy}
+                    className="text-[10px] font-light tracking-widest"
+                    variants={{
+                      rest: { fill: "rgba(255, 255, 255, 0.9)" },
+                      hover: { fill: "#00E5FF" }
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {label}
+                  </motion.text>
+                </motion.g>
               </Marker>
             ))}
           </ComposableMap>

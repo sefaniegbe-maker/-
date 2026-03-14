@@ -39,6 +39,8 @@ const resources = {
       "about.value.desc": "省成本、创收益、高效率、ESG标杆。",
       "contact.title": "联系我们",
       "contact.desc": "携手共创零碳未来",
+      "contact.address": "联系地址：深圳南山区清华信息港科研楼",
+      "contact.email": "联系邮箱：info@aethravolt.com",
       "contact.button": "立即联系"
     }
   },
@@ -79,6 +81,8 @@ const resources = {
       "about.value.desc": "Cost saving, revenue generation, high efficiency, ESG benchmark.",
       "contact.title": "Contact Us",
       "contact.desc": "Join hands to create a zero-carbon future",
+      "contact.address": "Address: Tsinghua Information Port Research Building, Nanshan District, Shenzhen",
+      "contact.email": "Email: info@aethravolt.com",
       "contact.button": "Contact Now"
     }
   },
@@ -119,6 +123,8 @@ const resources = {
       "about.value.desc": "Kostenersparnis, Umsatzgenerierung, hohe Effizienz, ESG-Benchmark.",
       "contact.title": "Kontakt",
       "contact.desc": "Gemeinsam eine kohlenstofffreie Zukunft schaffen",
+      "contact.address": "Adresse: Tsinghua Information Port Research Building, Nanshan District, Shenzhen",
+      "contact.email": "E-Mail: info@aethravolt.com",
       "contact.button": "Jetzt kontaktieren"
     }
   },
@@ -159,6 +165,8 @@ const resources = {
       "about.value.desc": "Tiết kiệm chi phí, tạo doanh thu, hiệu quả cao, tiêu chuẩn ESG.",
       "contact.title": "Liên hệ",
       "contact.desc": "Chung tay tạo dựng tương lai không carbon",
+      "contact.address": "Địa chỉ: Tòa nhà Nghiên cứu Cảng Thông tin Thanh Hoa, Quận Nam Sơn, Thâm Quyến",
+      "contact.email": "Email: info@aethravolt.com",
       "contact.button": "Liên hệ ngay"
     }
   },
@@ -199,6 +207,8 @@ const resources = {
       "about.value.desc": "ประหยัดต้นทุน สร้างรายได้ ประสิทธิภาพสูง มาตรฐาน ESG",
       "contact.title": "ติดต่อเรา",
       "contact.desc": "ร่วมมือกันสร้างอนาคตไร้คาร์บอน",
+      "contact.address": "ที่อยู่: อาคารวิจัย Tsinghua Information Port เขตหนานซาน เซินเจิ้น",
+      "contact.email": "อีเมล: info@aethravolt.com",
       "contact.button": "ติดต่อตอนนี้"
     }
   }

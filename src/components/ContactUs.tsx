@@ -31,10 +31,21 @@ export default function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-xl md:text-3xl font-light text-white/80 tracking-widest mb-16"
+          className="text-xl md:text-3xl font-light text-white/80 tracking-widest mb-12"
         >
           {t('contact.desc')}
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col items-center justify-center space-y-4 mb-16 text-white/60 font-light tracking-wider"
+        >
+          <p>{t('contact.address')}</p>
+          <p>{t('contact.email')}</p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
